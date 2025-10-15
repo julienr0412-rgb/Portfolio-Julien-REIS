@@ -325,6 +325,105 @@ section{max-width:1100px;margin:18px auto;padding:18px 20px}
   font-weight: 700;
 }
 
+/* --- SECTION BTS SIO --- */
+
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .bts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+  }
+
+  .bts-card {
+    background: #f9fafc;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    transition: all 0.35s ease;
+  }
+
+  .bts-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+
+  .bts-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .bts-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .bts-content {
+    padding: 20px;
+  }
+
+  .bts-content h3 {
+    font-size: 1.2rem;
+    color: #0d47a1;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bts-content p {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .bts-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0 0 0;
+  }
+
+  .bts-content ul li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 6px;
+    color: #555;
+  }
+
+  .bts-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+  }
+
+  .bts-card.small img {
+    height: 150px;
+  }
+
+  .bts-card.small .bts-content {
+    padding: 16px;
+  }
+
+  @media(max-width: 768px) {
+    .bts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
 /* Timeline */
 .timeline {
   position: relative;
@@ -477,7 +576,7 @@ textarea{min-height:140px}
   display: block;
   margin: 12px auto;      /* centre l’image horizontalement */
   width: 250px;           /* largeur fixe (ajuste selon ton besoin) */
-  height: 250px;          /* hauteur fixe → carré */
+  height: 200px;          /* hauteur fixe → carré */
   object-fit: cover;      /* rogne l’image sans la déformer */
   border-radius: 12px;    /* optionnel : arrondir les coins */
   box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* petit effet moderne */
@@ -920,6 +1019,269 @@ nav ul li a:hover {
     }
   }
 
+  /* --- CONTACT SECTION --- */
+  #contact {
+    background: #f9fafc;
+    padding: 80px 20px;
+    border-top: 2px solid #e5eaf1;
+  }
+
+  .contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-intro {
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .contact-info, .contact-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 15px;
+  }
+
+  .info-item i {
+    color: #007bff;
+    font-size: 18px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+  }
+
+  .social-link.linkedin {
+    background: #0077b5;
+  }
+
+  .social-link.github {
+    background: #24292e;
+  }
+
+  .social-link:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+  }
+
+  /* --- Formulaire --- */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+
+  .btn-contact {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .btn-contact:hover {
+    background: #0056d8;
+  }
+
+  @media(max-width: 700px) {
+    .contact-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  /* --- SECTION PROFIL --- */
+#profil {
+  background-color: #ffffff;
+  padding: 100px 20px;
+  display: flex;
+  border-radius: 12px;
+  justify-content: center;
+}
+
+.profil-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.profil-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #007bff;
+  margin-top: 8px;
+  margin-left: 500px;
+  border-radius: 2px;
+}
+
+.profil-text {
+  font-size: 17px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+/* --- COMPÉTENCES --- */
+.skills h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #0d1b2a;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tags span {
+  background: #f2f6fc;
+  color: #007bff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #e3e9f2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.skill-tags span:hover {
+  background: #007bff;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* --- BOUTONS --- */
+.profil-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #007bff;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #005fd1;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.btn-secondary:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+/* --- ILLUSTRATION --- */
+.profil-illustration img {
+  width: 380px;
+  max-width: 100%;
+  border-radius: 12px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* --- RESPONSIVE --- */
+@media(max-width: 950px) {
+  .profil-wrapper {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .profil-illustration img {
+    width: 300px;
+  }
+
+  .profil-buttons {
+    justify-content: center;
+  }
+}
+
 </style>
 
 <!-- AOS Animate On Scroll -->
@@ -957,7 +1319,7 @@ nav ul li a:hover {
       <ul>
         <li><a href="#profil" data-tooltip="Profil"><span class="icon">👤</span><span class="text">Profil</span></a></li>
         <li><a href="#parcours" data-tooltip="Parcours"><span class="icon">📜</span><span class="text">Parcours</span></a></li>
-        <li><a href="#bts" data-tooltip="BTS SIO"><span class="icon">💻</span><span class="text">BTS SIO</span></a></li>
+        <li><a href="#bts-sio" data-tooltip="BTS SIO"><span class="icon">💻</span><span class="text">BTS SIO</span></a></li>
         <li><a href="#stages" data-tooltip="Stage"><span class="icon">🏢</span><span class="text">Stage</span></a></li>
         <li><a href="#projets" data-tooltip="Projets"><span class="icon">🛠️</span><span class="text">Mes réalisations</span></a></li>
         <li><a href="#veilles" data-tooltip="Veilles"><span class="icon">🔍</span><span class="text">Veilles</span></a></li>
@@ -973,65 +1335,50 @@ nav ul li a:hover {
 
 <main>
 
- <!-- PROFIL -->
- <section id="profil" class="profil-section">
-  <h2 class="section-title">Profil</h2>
-  <div class="profil-container">
-    
-    <!-- Bloc gauche -->
-    <div class="profil-left">
-      <img src="photo-ordi.jpeg" alt="Photo de profil" class="profil-photo">
-    </div>
-    
-    <!-- Bloc droit -->
-    <div class="profil-right">
-      
-      <!-- A propos -->
-      <div class="about-me">
-        <h3>À propos de moi</h3>
-        <p>
-          Je suis <strong>Julien REIS</strong>, étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations), <strong>Option SISR</strong> (Solutions d'Infrastructure Systèmes et Réseaux) passionné par le domaine de l'informatique. 
-          J’aime apprendre de nouvelles technologies, créer des projets concrets et améliorer continuellement mes compétences techniques.
-        </p>
-      </div>
+ <!-- SECTION PROFIL -->
+<section id="profil">
+  <div class="profil-wrapper">
+    <div class="profil-content" data-aos="fade-up">
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="profil-text">
+        Je suis un étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations), 
+        option <strong>SLAM</strong>, passionné par le développement web, les systèmes et les technologies innovantes.  
+        Curieux, rigoureux et motivé, j’aime apprendre de nouvelles compétences 
+        et relever des défis techniques à travers mes projets.
+      </p>
 
-      <!-- Compétences -->
+      <!-- COMPÉTENCES -->
       <div class="skills">
-        <h3>Mes compétences</h3>
-        <div class="skills-list">
-          <span class="skill">Virtualisation</span>
-          <span class="skill">Système d'exploitation</span>
-          <span class="skill">VLAN's</span>
-          <span class="skill">RAID</span>
-          <span class="skill">Supervision</span>
-          <span class="skill">Active Directory</span>
+        <h3>Compétences techniques</h3>
+        <div class="skill-tags">
+          <span><i class="fa-brands fa-windows"></i> Virtualisation </span>
+          <span><i class="fa-solid fa-cloud"></i> VLAN's </span>
+          <span><i class="fa-solid fa-shield-halved"></i> RAID </span>
+          <span><i class="fa-solid fa-computer"></i> Supervision </span>
+          <span><i class="fa-solid fa-users"></i> Active Directory </span>
+          <span><i class="fa-brands fa-linux"></i> Linux </span>
+          <span><i class="fa-solid fa-network-wired"></i> Réseaux </span>
+          <span><i class="fa-solid fa-shield-virus"></i> Cybersécurité </span>
         </div>
       </div>
 
-      <!-- Filière -->
-      <div class="filiere">
-        <h3>Ma filière</h3>
-        <p><strong>BTS SIO — Option SISR</strong></p>
+      <!-- BOUTONS -->
+      <div class="profil-buttons">
+        <a href="CV Julien REIS.pdf" class="btn" download>
+          <i class="fa-solid fa-file-arrow-down"></i> Télécharger mon CV
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fa-solid fa-envelope"></i> Me contacter
+        </a>
       </div>
-
-<!-- === CV DÉPLIANT ANIMÉ === -->
-<div class="cv-container" data-aos="fade-up">
-  <button class="cv-toggle" onclick="toggleCV()">
-    <span class="cv-icon">📄</span> Voir mon CV
-    <span class="arrow">&#9662;</span>
-  </button>
-
-  <div class="cv-content" id="cvContent">
-    <div class="cv-frame">
-      <iframe src="CV Julien REIS.pdf" frameborder="0"></iframe>
     </div>
-  </div>
-</div>
 
+    <!-- ILLUSTRATION -->
+    <div class="profil-illustration" data-aos="fade-left">
+      <img src="photo-ordi.jpeg" alt="Illustration développeur">
     </div>
   </div>
 </section>
-
 
 
 <!-- PARCOURS -->
@@ -1079,61 +1426,76 @@ nav ul li a:hover {
   </div>
 </section>
 
-  <!-- BTS SIO -->
-<section id="bts" data-aos="fade-up">
+<!-- SECTION BTS SIO -->
+<section id="bts-sio">
   <h2 class="section-title">BTS SIO</h2>
   <div class="card" data-animate data-aos="fade-up">
-    <p style="color:var(--muted)">
-      Le BTS SIO propose deux options. Voici un aperçu de l’option que je suis, de l’option alternative, ainsi que des objectifs et débouchés de la formation.
+    <p class="section-intro">
+      Le <strong>BTS Services Informatiques aux Organisations (SIO)</strong> forme des spécialistes capables de concevoir, maintenir et sécuriser des solutions informatiques au service des entreprises.  
+      Deux options sont proposées selon le parcours choisi :
     </p>
 
-    <!-- Première ligne : options -->
-    <div class="grid">
+    <div class="bts-grid">
       <!-- SISR -->
-      <div class="project" data-animate data-aos="zoom-in">
-        <img src="IMAGE-BTS-SISR.jpg" alt="Illustration SISR" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-        <h3>Option SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</h3>
-        <p style="color:var(--muted)">
-          Spécialisation orientée administration, configuration et sécurisation des réseaux et systèmes.
-          Gestion des serveurs, virtualisation, Active Directory, VLAN, supervision et cybersécurité.
-        </p>
+      <div class="bts-card" data-animate data-aos="fade-right">
+        <img src="IMAGE-BTS-SISR.jpg" alt="Option SISR">
+        <div class="bts-content">
+          <h3><i class="fa-solid fa-network-wired"></i> Option SISR</h3>
+          <p>
+            L’option <strong>SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</strong> forme à la mise en place, la maintenance et la sécurisation des réseaux et serveurs d’entreprise.
+          </p>
+          <ul>
+            <li>Administration systèmes et réseaux</li>
+            <li>Cybersécurité et virtualisation</li>
+            <li>Déploiement de solutions d’infrastructure</li>
+          </ul>
+        </div>
       </div>
 
       <!-- SLAM -->
-      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="100">
-        <img src="IMAGE-BTS-SLAM.jpg" alt="Illustration SLAM" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-        <h3>Option SLAM (Solutions Logicielles et Applications Métiers)</h3>
-        <p style="color:var(--muted)">
-          Spécialisation orientée développement d’applications web, mobiles et logiciels métiers.
-          Programmation, bases de données, frameworks, tests et gestion de projets.
-        </p>
+      <div class="bts-card" data-animate data-aos="fade-left">
+        <img src="IMAGE-BTS-SLAM.jpg" alt="Option SLAM">
+        <div class="bts-content">
+          <h3><i class="fa-solid fa-code"></i> Option SLAM</h3>
+          <p>
+            L’option <strong>SLAM (Solutions Logicielles et Applications Métiers)</strong> forme à la conception, au développement et à la maintenance d’applications logicielles ou web.
+          </p>
+          <ul>
+            <li>Développement d’applications web et mobile</li>
+            <li>Analyse et conception de bases de données</li>
+            <li>Gestion de projets et méthodes agiles</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- Deuxième ligne : objectifs & débouchés -->
-    <div class="grid" style="margin-top:20px">
+    <!-- OBJECTIFS & DÉBOUCHÉS -->
+    <div class="bts-grid" style="margin-top:30px;">
       <!-- Objectifs -->
-      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="200">
-        <img src="competence_BTS_SIO.png" alt="Illustration Objectifs du BTS" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-        <h3>Objectifs du BTS SIO</h3>
-        <p style="color:var(--muted)">
-          Former des techniciens capables de répondre aux besoins informatiques des organisations : 
-          gestion des infrastructures, développement d’applications, cybersécurité et support technique.
-        </p>
+      <div class="bts-card small" data-animate data-aos="zoom-in">
+        <img src="competence_BTS_SIO.png" alt="Objectifs du BTS SIO">
+        <div class="bts-content">
+          <h3><i class="fa-solid fa-bullseye"></i> Objectifs du BTS SIO</h3>
+          <p>
+            Le <strong>BTS SIO</strong> permet d’acquérir des compétences techniques solides, une approche orientée projet et une connaissance du monde professionnel grâce aux stages en entreprise.
+          </p>
+        </div>
       </div>
 
       <!-- Débouchés -->
-      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="300">
-        <img src="IMAGE-Débouchés.jpg" alt="Illustration Débouchés du BTS" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
-        <h3>Les débouchés du BTS SIO</h3>
-        <p style="color:var(--muted)">
-          Le BTS SIO ouvre la voie vers divers métiers : administrateur systèmes/réseaux, technicien support,
-          développeur web/mobile, analyste cybersécurité, ou encore vers une poursuite d’études (licence, école d’ingénieur).
-        </p>
+      <div class="bts-card small" data-animate data-aos="zoom-in">
+        <img src="IMAGE-Débouchés.jpg" alt="Débouchés du BTS SIO">
+        <div class="bts-content">
+          <h3><i class="fa-solid fa-briefcase"></i> Débouchés du BTS SIO</h3>
+          <p>
+            Les diplômés peuvent devenir <strong>Technicien Réseau, Administrateur Systèmes, Développeur Web, Analyste Programmeur</strong> ou encore poursuivre en Licence ou Ecole d’Ingénieur.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- STAGES -->
 <section id="stages" data-aos="fade-up">
@@ -1144,7 +1506,7 @@ nav ul li a:hover {
     <!-- Stage 1 -->
     <div class="accordion-item" data-aos="fade-up">
       <button class="accordion-header">
-        <span>Stage — Novae</span>
+        <span>Stage — Novae 🧰</span>
         <span class="icon">+</span>
       </button>
       <div class="accordion-content">
@@ -1164,7 +1526,7 @@ nav ul li a:hover {
     <!-- Stage 2 -->
     <div class="accordion-item" data-aos="fade-up">
       <button class="accordion-header">
-        <span>Stage — Athena Global Services</span>
+        <span>Stage — AGS 🖥️</span>
         <span class="icon">+</span>
       </button>
       <div class="accordion-content">
@@ -1253,7 +1615,6 @@ nav ul li a:hover {
         
           <div class="pdf-links">
             <a href="Running_Hightech.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Travaux Pratiques </a>
-            <a href="" target="_blank"><i class="fa-solid fa-file-lines"></i> TP </a>
           </div>
         </div>
 
@@ -1264,8 +1625,21 @@ nav ul li a:hover {
           </div>
           <h3>Création de mon portfolio en ligne.</h3>
           <p>Création de mon portfolio sur Visual Studio Code en HTML</p>
-          <div class="skills-list">
-          <span class="skill">Virtualisation</span>
+            <div class="pdf-links">
+            <a href="https://github.com/julienr0412-rgb" target="_blank"><i class="fa-brands fa-github"></i></i> GitHub </a>
+            </div>
+        </div>
+
+        <!-- Projet 5 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="Proxmox-logo.png" alt="Projet de Documentation">
+          </div>
+          <h3>PROXMOX</h3>
+          <p>Déploiement d’un environnement avec supervision durant ma période de stage chez AGS.</p>
+          <div class="pdf-links">
+            <a href="Photo-Prox.jpeg" target="_blank"><i class="fa-solid fa-server"></i></i> PROXMOX </a>
+          </div>
         </div>
         </div>
 
@@ -1450,44 +1824,49 @@ nav ul li a:hover {
 </section>
 
   <!-- CONTACT -->
-  <section id="contact" data-aos="fade-up">
-    <h2 class="section-title">Contact</h2>
+<section id="contact">
+  <div class="contact-container" data-aos="fade-up">
+    <h2 class="section-title">📬 Me Contacter</h2>
+    <p class="contact-intro">
+      Je suis toujours ouvert aux opportunités, collaborations ou échanges autour de l’informatique, de la cybersécurité et des nouvelles technologies.
+      <br> Voici mes coordonnées professionnelles :
+    </p>
+
     <div class="contact-grid">
-      <div class="card" data-animate data-aos="fade-up">
-        <form action="" onsubmit="event.preventDefault(); sendMail();">
-          <div class="field">
-            <label>Nom</label>
-            <input type="text" id="name" placeholder="Votre nom" required>
-          </div>
-          <div class="field">
-            <label>E‑mail</label>
-            <input type="email" id="email" placeholder="vous@exemple.com" required>
-          </div>
-          <div class="field">
-            <label>Message</label>
-            <textarea id="message" placeholder="Bonjour..." required></textarea>
-          </div>
-          <div style="display:flex;gap:10px">
-            <button class="btn" type="submit">Envoyer</button>
-            <a class="btn ghost" href="mailto:contact@exemple.com">Envoyer via mail</a>
-          </div>
-        </form>
+      <!-- Infos principales -->
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>julien.r0412@gmail.com</span>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Sucy-en-Brie, France</span>
+        </div>
       </div>
 
-      <aside class="card" data-animate data-aos="fade-left">
-        <h3>Infos</h3>
-        <p style="color:var(--muted)">Email : <a href="mailto:contact@exemple.com">julien.r0412@gmail.com</a><br>Localisation : Sucy-en-Brie, 94370</p>
-        <div style="margin-top:12px">
-          <strong>Réseaux</strong>
-          <div style="display:flex;gap:8px;margin-top:8px">
-            <a class="tag" href="#">GitHub</a>
-            <a class="tag" href="#">LinkedIn</a>
-            <a class="tag" href="#">Twitter</a>
-          </div>
-        </div>
-      </aside>
+      <!-- Réseaux -->
+      <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/julien-reis-71275a2b7/" target="_blank" class="social-link linkedin">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/julienr0412-rgb" target="_blank" class="social-link github">
+          <i class="fa-brands fa-github"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
     </div>
-  </section>
+
+    <!-- Formulaire de contact (optionnel) -->
+    <form class="contact-form">
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre e-mail" required>
+      <textarea rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit" class="btn-contact">Envoyer</button>
+    </form>
+  </div>
+</section>
 
   <div class="foot">© <span id="year"></span> REIS Julien — Portfolio</div>
 </main>
