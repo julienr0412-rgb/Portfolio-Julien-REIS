@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — REIS Julien</title>
+  <meta name="description" content="Portfolio — Profil, BTS SIO, Projets, Veilles, Certifications, Contact">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --bg:#ebeef6;       /* fond clair */
+  --card:#ffffff;     /* cartes blanches */
+  --accent:#3b82f6;   /* bleu lumineux (accent) */
+  --muted:#6b7280;    /* gris doux pour le texte secondaire */
+  --radius:14px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background: var(--bg);
+  color:#2c3e50; /* texte foncé */
+}
+
+a{color:var(--accent);text-decoration:none}
+
+/* Header / Nav */
+
+/* Sidebar moderne */
+.sidebar-modern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background: linear-gradient(180deg, #1e3a8a, #3b82f6);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 20px rgba(0,0,0,0.15);
+  transition: width 0.3s ease;
+  z-index: 100;
+}
+
+/* Logo */
+.sidebar-modern .logo-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sidebar-modern .logo-circle:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Menu vertical */
+.sidebar-modern .sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar-modern .sidebar-nav ul li {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.sidebar-modern .sidebar-nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.sidebar-modern .sidebar-nav ul li a .icon {
+  font-size: 18px;
+}
+
+.sidebar-modern .sidebar-nav ul li a:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Tooltip */
+.sidebar-modern .sidebar-nav ul li a[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  color: #1e3a8a;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
+.sidebar-footer {
+  margin-top: auto; /* pousse le footer tout en bas */
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 10px 5px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Photo de profil */
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* rond parfait */
+  object-fit: cover;
+  border: 3px solid #3b82f6; /* bordure bleu moderne */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(59,130,246,0.6);
+}
+
+/* Nom en dessous */
+.sidebar-name {
+  margin-top: 12px;
+  margin-left: -15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f3f4f6;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Texte menu visible seulement sur large écran */
+.sidebar-modern .sidebar-nav ul li a .text {
+  display: inline-block;
+}
+
+main {
+  margin-left: 260px; /* espace pour sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+/* Collapsible responsive */
+@media(max-width:980px){
+  .sidebar-modern {
+    width: 70px;
+    padding: 20px 0;
+  }
+
+  .sidebar-modern .sidebar-nav ul li a .text {
+    display: none;
+  }
+
+  main {
+    margin-left: 80px;
+  }
+}
+
+/* Hero */
+.hero{
+  max-width:1100px;
+  margin:-55px auto 60px;
+  padding:22px 20px;
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:28px;align-items:center}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+  border:1px solid #e5e7eb;
+}
+.intro h1{margin:0;font-size:30px;letter-spacing:-0.5px}
+.intro p.lead{color:var(--muted);margin-top:12px;line-height:1.6}
+.cta{margin-top:18px;display:flex;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:12px;font-weight:700;
+  background:linear-gradient(90deg,var(--accent),#60a5fa);
+  color:#fff;border:none;cursor:pointer;transition:0.2s;
+}
+.btn:hover{opacity:0.9}
+.btn.ghost{
+  background:#f9fafb;border:1px solid #d1d5db;
+  color:#374151;font-weight:600
+}
+.btn.ghost:hover{background:#e5e7eb}
+
+/* Sous-cartes dans la colonne gauche */
+.sub-card h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-size:18px;
+  color:#111827;
+}
+
+/* Section Profil */
+.profil-section {
+  padding: 60px 40px;
+  background: #f9fafb;
+  border-radius: 20px;
+  margin: 20px auto;
+  margin-left: 60px;
+  margin-right: 60px;
+  max-width: 1200px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.profil-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+/* Photo */
+.profil-left {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.profil-photo {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease;
+}
+
+.profil-photo:hover {
+  transform: scale(1.03);
+}
+
+/* Texte */
+.profil-right {
+  flex: 2;
+  min-width: 300px;
+}
+
+.profil-right h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.profil-right p {
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 25px;
+}
+
+/* Compétences en badges */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.skill {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(59,130,246,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(59,130,246,0.5);
+}
+
+/* Filière */
+.filiere p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+
+/* Sections */
+section{max-width:1100px;margin:18px auto;padding:18px 20px}
+
+  .section-title {
+  margin-top: 0;   /* supprime l’espace au-dessus */
+  margin-bottom: 50px; /* espace sous le titre */
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding-left: 28px;
+  border-left: 3px solid var(--accent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -38px;
+  top: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.15);
+}
+
+.timeline-content {
+  background:#fff;
+  padding:16px 20px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 3px 10px rgba(0,0,0,0.04);
+}
+
+.timeline-content h3 {
+  margin:0 0 4px;
+  font-size:18px;
+  color:#111827;
+}
+
+.timeline-content .date {
+  display:block;
+  font-size:14px;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.timeline-content p {
+  margin:0;
+  color:#4b5563; /* gris moyen */
+  font-size:15px;
+  line-height:1.5;
+}
+
+/* Grid projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.project{padding:14px;border-radius:12px;background:#f9fafb;border:1px solid #e5e7eb;box-shadow:0 2px 6px rgba(0,0,0,0.05)}
+.project h3{margin:6px 0;color:#1f2937}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:6px 8px;border-radius:8px;background:#e0e7ff;font-size:12px;color:#1e3a8a}
+
+/* Veilles */
+.card-list{display:flex;flex-direction:column;gap:12px}
+.veille{display:flex;gap:12px;align-items:center}
+.thumb{width:88px;height:66px;border-radius:8px;background:#dbeafe;display:flex;align-items:center;justify-content:center;color:#1e40af;font-weight:600}
+
+/* Certifications */
+.certs{display:flex;gap:12px;flex-wrap:wrap}
+.cert{padding:10px;border-radius:10px;background:#f9fafb;border:1px solid #e5e7eb;min-width:140px}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+form .field{display:flex;flex-direction:column;margin-bottom:12px}
+input,textarea{
+  background:#fff;border:1px solid #d1d5db;padding:10px;border-radius:8px;color:#111827
+}
+textarea{min-height:140px}
+.foot{max-width:1100px;margin:40px auto 80px;color:var(--muted);text-align:center}
+
+/* Responsive */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* animations */
+[data-animate]{opacity:0;transform:translateY(10px);transition:all 700ms cubic-bezier(.22,1,.36,1)}
+[data-animate].aos-animate{opacity:1;transform:none}
+
+/* Accordion container */
+.accordion {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Accordion item */
+.accordion-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+/* Header (clickable) */
+.accordion-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordion-header:hover {
+  background: #f9fafb;
+}
+
+.accordion-header .icon {
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+/* Content */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: #fafafa;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.accordion-content p {
+  margin: 15px 0;
+  color: #374151;
+  line-height: 1.6;
+}
+.stage-img {
+  display: block;
+  margin: 12px auto;      /* centre l’image horizontalement */
+  width: 250px;           /* largeur fixe (ajuste selon ton besoin) */
+  height: 250px;          /* hauteur fixe → carré */
+  object-fit: cover;      /* rogne l’image sans la déformer */
+  border-radius: 12px;    /* optionnel : arrondir les coins */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* petit effet moderne */
+}
+
+/* Active state */
+.accordion-item.active .accordion-content {
+  max-height: 500px; /* assez grand pour tout afficher */
+  padding: 20px;
+}
+
+.accordion-item.active .icon {
+  transform: rotate(45deg); /* + devient X */
+}
+
+.stage-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 10px 0;
+  text-align: center; /* pour centrer le titre */
+  color: var(--accent); /* reprend ta couleur principale */
+}
+
+.task-list {
+  list-style-type: none; /* enlève les puces par défaut */
+  padding-left: 20px;
+}
+
+.task-list li {
+  position: relative;
+  margin-bottom: 6px;
+  padding-left: 12px;
+}
+
+.task-list li::before {
+  content: "•"; /* le point */
+  position: absolute;
+  left: 0;
+  color: var(--accent); /* couleur principale de ton site */
+  font-weight: bold;
+}
+
+.logo-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%; /* cercle parfait */
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  font-weight: 700;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-circle:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav links hover modern */
+nav ul li a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #374151;
+  transition: all 0.25s ease;
+}
+
+nav ul li a:hover {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.competences {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.competences h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Grille */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Carte de compétence */
+.skill-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Icône */
+.skill-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+/* Titre */
+.skill-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Description */
+.skill-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+/* Tag niveau */
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  padding: 5px 12px;
+  border-radius: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.project-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img img {
+  transform: scale(1.05);
+}
+
+/* Overlay (effet survol) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Icônes modernes */
+.icon-btn {
+  color: white;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  margin: 15px 15px 5px;
+}
+
+.project-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0 15px 15px;
+}
+
+.pdf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.pdf-links a {
+  text-decoration: none;
+  background: var(--accent);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-links a:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+.pdf-links i {
+  margin-right: 6px;
+}
+
+.pdf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.pdf-links a {
+  text-decoration: none;
+  background: var(--accent);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-links a:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+
+.pdf-links i {
+  margin-right: 6px;
+}
+
+/* === CONTAINER GLOBAL === */
+.cv-container {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === BOUTON PRINCIPAL === */
+.cv-toggle {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  margin-left: -350px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.cv-toggle:hover {
+  background: #222;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* === ICÔNE ET FLÈCHE === */
+.cv-icon {
+  font-size: 1.3rem;
+}
+
+.cv-toggle .arrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.4s ease;
+}
+
+/* === CONTENU DU CV === */
+.cv-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.9s ease, opacity 0.7s ease;
+  width: 90%;
+  max-width: 900px;
+  margin-top: 20px;
+  margin-left: -350px;
+}
+
+/* Quand le CV est ouvert */
+.cv-content.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* === CADRE DU CV === */
+.cv-frame {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.8s ease;
+}
+
+.cv-frame iframe {
+  width: 100%;
+  height: 850px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* === FLÈCHE TOURNANTE === */
+.cv-content.open ~ .cv-toggle .arrow {
+  transform: rotate(180deg);
+}
+
+/* === ANIMATION D’APPARITION === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* --- CERTIFICATIONS SECTION --- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .cert-item {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 0 0 20px 0;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+
+  .cert-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  }
+
+  .cert-img {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .cert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .cert-item:hover .cert-img img {
+    transform: scale(1.08);
+  }
+
+  .cert-item h3 {
+    margin: 14px 0 6px;
+    font-size: 18px;
+    color: #222;
+  }
+
+  .cert-item p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    padding: 0 12px;
+  }
+
+  .cert-year {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #eaf3ff;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #007bff;
+    font-weight: 600;
+  }
+
+  @media(max-width: 700px) {
+    .cert-item {
+      padding-bottom: 16px;
+    }
+    .cert-img {
+      height: 140px;
+    }
+  }
+
+</style>
+
+<!-- AOS Animate On Scroll -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+    <!-- Logo -->
+    <a href="#profil" class="logo-circle" title="REIS Julien">JR</a>
+    <div class="brand-text">
+      <div style="font-weight:700">REIS Julien</div>
+      <div style="font-size:12px;color:var(--muted)">Etudiant · BTS SIO</div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <aside class="sidebar-modern">
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <img src="photo-cv.jpg" alt="Photo de profil" class="profile-pic">
+        <h3 class="sidebar-name">Julien REIS</h3>
+      </div>      
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#profil" data-tooltip="Profil"><span class="icon">👤</span><span class="text">Profil</span></a></li>
+        <li><a href="#parcours" data-tooltip="Parcours"><span class="icon">📜</span><span class="text">Parcours</span></a></li>
+        <li><a href="#bts" data-tooltip="BTS SIO"><span class="icon">💻</span><span class="text">BTS SIO</span></a></li>
+        <li><a href="#stages" data-tooltip="Stage"><span class="icon">🏢</span><span class="text">Stage</span></a></li>
+        <li><a href="#projets" data-tooltip="Projets"><span class="icon">🛠️</span><span class="text">Mes réalisations</span></a></li>
+        <li><a href="#veilles" data-tooltip="Veilles"><span class="icon">🔍</span><span class="text">Veilles</span></a></li>
+        <li><a href="#certifs" data-tooltip="Certifications"><span class="icon">🎓</span><span class="text">Certifications</span></a></li>
+        <li><a href="#contact" data-tooltip="Contact"><span class="icon">✉️</span><span class="text">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      © 2025 REIS Julien — Portfolio
+    </div>  
+  </aside>
+</header>
+
+<main>
+
+ <!-- PROFIL -->
+ <section id="profil" class="profil-section">
+  <h2 class="section-title">Profil</h2>
+  <div class="profil-container">
+    
+    <!-- Bloc gauche -->
+    <div class="profil-left">
+      <img src="photo-ordi.jpeg" alt="Photo de profil" class="profil-photo">
+    </div>
+    
+    <!-- Bloc droit -->
+    <div class="profil-right">
+      
+      <!-- A propos -->
+      <div class="about-me">
+        <h3>À propos de moi</h3>
+        <p>
+          Je suis <strong>Julien REIS</strong>, étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations), <strong>Option SISR</strong> (Solutions d'Infrastructure Systèmes et Réseaux) passionné par le domaine de l'informatique. 
+          J’aime apprendre de nouvelles technologies, créer des projets concrets et améliorer continuellement mes compétences techniques.
+        </p>
+      </div>
+
+      <!-- Compétences -->
+      <div class="skills">
+        <h3>Mes compétences</h3>
+        <div class="skills-list">
+          <span class="skill">Virtualisation</span>
+          <span class="skill">Système d'exploitation</span>
+          <span class="skill">VLAN's</span>
+          <span class="skill">RAID</span>
+          <span class="skill">Supervision</span>
+          <span class="skill">Active Directory</span>
+        </div>
+      </div>
+
+      <!-- Filière -->
+      <div class="filiere">
+        <h3>Ma filière</h3>
+        <p><strong>BTS SIO — Option SISR</strong></p>
+      </div>
+
+<!-- === CV DÉPLIANT ANIMÉ === -->
+<div class="cv-container" data-aos="fade-up">
+  <button class="cv-toggle" onclick="toggleCV()">
+    <span class="cv-icon">📄</span> Voir mon CV
+    <span class="arrow">&#9662;</span>
+  </button>
+
+  <div class="cv-content" id="cvContent">
+    <div class="cv-frame">
+      <iframe src="CV Julien REIS.pdf" frameborder="0"></iframe>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PARCOURS -->
+<section id="parcours" data-aos="fade-right">
+  <h2 class="section-title">Parcours</h2>
+  <div class="timeline">
+    
+    <!-- Bac Pro -->
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        🎓
+      </div>
+      <div class="timeline-content">
+        <h3>Bac Pro SN – Lycée Christophe Colomb</h3>
+        <span class="date">2021 – 2024</span>
+        <p>Baccalauréat Professionnel en Systèmes Numériques (Option RISC : Réseaux Informatique et Systèmes Communicants). Première approche des environnements technologiques et connectés.</p>
+      </div>
+    </div>
+
+    <!-- BTS SIO -->
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        💻
+      </div>
+      <div class="timeline-content">
+        <h3>BTS SIO – Ensemble Sainte Marie</h3>
+        <span class="date">2024 – 2026</span>
+        <p>Formation en cours sur les Services Informatiques aux Organisations, avec une spécialisation en Solutions d'Infrastructure, Systèmes et Réseaux (SISR).</p>
+      </div>
+    </div>
+
+    <!-- Licence -->
+    <div class="timeline-item">
+      <div class="timeline-icon">
+        🏫
+      </div>
+      <div class="timeline-content">
+        <h3>Licence Administrateur Systèmes et Réseaux</h3>
+        <span class="date">Prévu : 2026 – 2027</span>
+        <p><strong>En alternance</strong> au CFA UTEC à Emerainville - Marne-la-Vallée.  
+        Je souhaite poursuivre mes études après le BTS SIO pour approfondir mes compétences en administration système, réseaux et cybersécurité.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- BTS SIO -->
+<section id="bts" data-aos="fade-up">
+  <h2 class="section-title">BTS SIO</h2>
+  <div class="card" data-animate data-aos="fade-up">
+    <p style="color:var(--muted)">
+      Le BTS SIO propose deux options. Voici un aperçu de l’option que je suis, de l’option alternative, ainsi que des objectifs et débouchés de la formation.
+    </p>
+
+    <!-- Première ligne : options -->
+    <div class="grid">
+      <!-- SISR -->
+      <div class="project" data-animate data-aos="zoom-in">
+        <img src="IMAGE-BTS-SISR.jpg" alt="Illustration SISR" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+        <h3>Option SISR (Solutions d’Infrastructure, Systèmes et Réseaux)</h3>
+        <p style="color:var(--muted)">
+          Spécialisation orientée administration, configuration et sécurisation des réseaux et systèmes.
+          Gestion des serveurs, virtualisation, Active Directory, VLAN, supervision et cybersécurité.
+        </p>
+      </div>
+
+      <!-- SLAM -->
+      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="100">
+        <img src="IMAGE-BTS-SLAM.jpg" alt="Illustration SLAM" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+        <h3>Option SLAM (Solutions Logicielles et Applications Métiers)</h3>
+        <p style="color:var(--muted)">
+          Spécialisation orientée développement d’applications web, mobiles et logiciels métiers.
+          Programmation, bases de données, frameworks, tests et gestion de projets.
+        </p>
+      </div>
+    </div>
+
+    <!-- Deuxième ligne : objectifs & débouchés -->
+    <div class="grid" style="margin-top:20px">
+      <!-- Objectifs -->
+      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="200">
+        <img src="competence_BTS_SIO.png" alt="Illustration Objectifs du BTS" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+        <h3>Objectifs du BTS SIO</h3>
+        <p style="color:var(--muted)">
+          Former des techniciens capables de répondre aux besoins informatiques des organisations : 
+          gestion des infrastructures, développement d’applications, cybersécurité et support technique.
+        </p>
+      </div>
+
+      <!-- Débouchés -->
+      <div class="project" data-animate data-aos="zoom-in" data-aos-delay="300">
+        <img src="IMAGE-Débouchés.jpg" alt="Illustration Débouchés du BTS" style="width:100%;max-height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px">
+        <h3>Les débouchés du BTS SIO</h3>
+        <p style="color:var(--muted)">
+          Le BTS SIO ouvre la voie vers divers métiers : administrateur systèmes/réseaux, technicien support,
+          développeur web/mobile, analyste cybersécurité, ou encore vers une poursuite d’études (licence, école d’ingénieur).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGES -->
+<section id="stages" data-aos="fade-up">
+  <h2 class="section-title">Stages</h2>
+  
+  <div class="accordion">
+    
+    <!-- Stage 1 -->
+    <div class="accordion-item" data-aos="fade-up">
+      <button class="accordion-header">
+        <span>Stage — Novae</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-content">
+        <h3 class="stage-title">Électricité & Réseaux</h3>
+        <p>
+          Durant mon stage, j’ai découvert l’environnement professionnel 
+          et participé à la mise en place d'installations électriques et la maintenance d’équipements électriques. L’entreprise travaille à la fois sur le courant fort (machines, ascenseurs, moteurs) et le courant faible (interphones, systèmes de contrôle d’accès, badges).
+        </p>
+        <ul class="task-list">
+          <li>Intervention sur des armoires électriques et chemins de câbles.</li>
+          <li>Lecture de plans électriques et installation sur site.</li>
+        </ul>
+        <img src="Logo-Novae.png" alt="Stage 1" class="stage-img">
+      </div>
+    </div>
+    
+    <!-- Stage 2 -->
+    <div class="accordion-item" data-aos="fade-up">
+      <button class="accordion-header">
+        <span>Stage — Athena Global Services</span>
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-content">
+        <h3 class="stage-title">Administration Systèmes & Réseaux</h3>
+        <p>
+          J’ai effectué mon stage dans l’entreprise <strong>Athena Global Services</strong>, qui dispose d’une équipe IT responsable de la gestion et du maintien des systèmes informatiques de l’entreprise. L’équipe assure le support technique, la maintenance des ordinateurs et serveurs, ainsi que la sécurité informatique.
+        </p>
+        <ul class="task-list">
+          <li>Virtualisation (PROXMOX, ESXi)</li>
+          <li>Mise en place d'un Active Directory (DNS, DHCP, LAPS)</li>
+          <li>Supervision (Centreon)</li>
+          <li>Solution de sauvegarde (Veeam)</li>
+        </ul>
+        <img src="Logo-AGS" alt="Stage 1" class="stage-img">
+      </div>
+    </div>
+
+     
+    <!-- Stage 3 -->
+    <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
+      <button class="accordion-header">
+        <span>Stage — </span>
+        <span class="icon">+</span>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Lors de ce stage, j’ai participé à l’analyse de la sécurité réseau 
+          et à la mise en place de solutions de protection (pare-feu, sauvegardes, 
+          surveillance). Ce fut une étape importante pour développer mes compétences 
+          en cybersécurité et en administration.
+        </p>
+        <img src="stage3.jpg" alt="Stage 3" class="stage-img">
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+  
+
+  <!-- REALISATIONS -->
+  <section id="projets">
+    <h2 class="section-title">Mes Réalisations</h2>
+    <div class="card" data-animate>
+      <p style="color:var(--muted)">Voici quelques-uns de mes projets réalisés durant mon BTS SIO.</p>
+  
+      <div class="projects-grid">
+        <!-- Projet 1 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="MDL-Logo2.png" alt="Projet de Documentation">
+          </div>
+          <h3>Projet : MDL (Maison des Ligues)</h3>
+          <p>Ensemble de missions techniques liés à notre spécialité.</p>
+        
+          <div class="pdf-links">
+            <a href="Mission 1 Julien REIS.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Mission 1 </a>
+            <a href="Mission 2 Julien REIS.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Mission 2 </a>
+            <a href="Mission 3 Julien et Nadir.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Mission 3 </a>
+            <a href="Mission 4 Julien et Nadir.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Mission 4 </a>
+          </div>
+        </div>
+        
+  
+        <!-- Projet 2 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="Logo-AGS" alt="Projet de Documentation">
+          </div>
+          <h3>Projet :Configuration et déploiement d’une infrastructure virtualisé</h3>
+          <p>Projet réalisé en autonomie durant mon stage de première année de BTS SIO.</p>
+        
+          <div class="pdf-links">
+            <a href="Infra-img.jpeg" target="_blank"><i class="fa-solid fa-building-shield"></i></i> Mon infrastructure </a>
+            <a href="Bureau-img.jpeg" target="_blank"><i class="fa-solid fa-display"></i> Bureau </a>
+          </div>
+        </div>
+        
+        <!-- Projet 3 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="VirtualBox-img.jpeg" alt="Projet de Documentation">
+          </div>
+          <h3>TP Running Hightech</h3>
+          <p>Mise en place d'une petite infrastructure sous Windows Server 2016.</p>
+        
+          <div class="pdf-links">
+            <a href="Running_Hightech.pdf" target="_blank"><i class="fa-solid fa-file-lines"></i> Travaux Pratiques </a>
+            <a href="" target="_blank"><i class="fa-solid fa-file-lines"></i> TP </a>
+          </div>
+        </div>
+
+        <!-- Projet 4 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="Vs-Code.jpeg" alt="Projet de Documentation">
+          </div>
+          <h3>Création de mon portfolio en ligne.</h3>
+          <p>Création de mon portfolio sur Visual Studio Code en HTML</p>
+          <div class="skills-list">
+          <span class="skill">Virtualisation</span>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+
+ <!-- VEILLES avec diaporama -->
+<section id="veilles">
+  <div class="card" data-animate data-aos="fade-up">
+    <h2 class="section-title">Veille Technologique</h2>
+    <p style="color:var(--muted)">Voici un aperçu de ma veille technologique sous forme de présentation dans le thème de La Cryptomonnaie.</p>
+
+    <!-- Swiper container -->
+    <div class="swiper mySwiper" style="margin-top:20px;">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <img src="Tech-1.jpg" alt="Slide 1" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <img src="Tech-2.jpg" alt="Slide 2" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <img src="Tech-3.jpg" alt="Slide 3" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <img src="Tech-4.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <img src="Tech-5.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 6 -->
+        <div class="swiper-slide">
+          <img src="Tech-6.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 7 -->
+        <div class="swiper-slide">
+          <img src="Tech-7.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+        <!-- Slide 8 -->
+        <div class="swiper-slide">
+          <img src="Tech-8.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+      </div>
+
+      <!-- Pagination et flèches -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+  <!-- Deuxième diaporama -->
+<div class="card" data-animate data-aos="fade-up" style="margin-top:30px">
+  <h2 class="section-title">Veilles Cybersécurité</h2>
+  <p style="color:var(--muted)">Voici un aperçu de ma veille Cybersécurité sous forme de présentation dans le thème de La Cybersécurité en lien avec les Cryptomonnaies</p>
+
+  <!-- Swiper Coverflow -->
+  <div class="swiper mySwiper2" style="margin-top:20px;">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <img src="Cyber-1.jpg" alt="Slide 1" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <img src="Cyber-2.jpg" alt="Slide 2" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <img src="Cyber-3.jpg" alt="Slide 3" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 4 -->
+      <div class="swiper-slide">
+        <img src="Cyber-4.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 5 -->
+      <div class="swiper-slide">
+        <img src="Cyber-5.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 6 -->
+      <div class="swiper-slide">
+        <img src="Cyber-6.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+      </div>
+      <!-- Slide 7 -->
+      <div class="swiper-slide">
+        <img src="Cyber-7.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Pagination -->
+<div class="swiper-pagination"></div>
+
+<!-- Flèches -->
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+
+  </div>
+</div>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifs">
+  <h2 class="section-title">Mes Certifications</h2>
+  <div class="card" data-animate data-aos="fade-up">
+    <p style="color:var(--muted);margin-bottom:20px">
+      Voici quelques-unes des certifications que j’ai obtenues durant mon parcours en informatique et en cybersécurité.
+    </p>
+
+    <div class="cert-grid">
+      <!-- CERTIF 1 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Certificat Module 1 REIS Julien.jpg" alt="Cisco CCNA">
+        </div>
+        <h3>Le RGPD et ses Notions Clés.</h3>
+        <p>Certification réseau reconnue mondialement, portant sur la configuration et la gestion d’infrastructures réseau.</p>
+        <span class="cert-year">2024</span>
+      </div>
+
+      <!-- CERTIF 2 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Certificat Module 2 REIS Julien.jpg" alt="Cybersécurité ANSSI">
+        </div>
+        <h3>Les Principes de la Protection des Données.</h3>
+        <p>Formation sur la sécurité des systèmes d’information, la prévention des attaques et la gestion des incidents.</p>
+        <span class="cert-year">2024</span>
+      </div>
+
+      <!-- CERTIF 3 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Certificat Module 3 REIS Julien.jpg" alt="Azure Fundamentals">
+        </div>
+        <h3>Les Responsabilités des Acteurs.</h3>
+        <p>Introduction aux services cloud et à la gestion des infrastructures sur la plateforme Azure.</p>
+        <span class="cert-year">2024</span>
+      </div>
+
+      <!-- CERTIF 4 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Certificat Module 4 REIS Julien.jpg" alt="Développement Web">
+        </div>
+        <h3> Le DPO et les Outils de la Conformité. </h3>
+        <p>Certificat de compétences en HTML, CSS et JavaScript, avec un focus sur le responsive design.</p>
+        <span class="cert-year">2024</span>
+      </div>
+
+      <!-- CERTIF 5 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Certificat Module 5 REIS Julien.jpg" alt="CompTIA Security+">
+        </div>
+        <h3>Les Collectivités Territoriales.</h3>
+        <p>Certification en sécurité réseau, cryptographie, analyse des menaces et gestion des accès.</p>
+        <span class="cert-year">2024</span>
+      </div>
+
+      <!-- CERTIF 6 -->
+      <div class="cert-item">
+        <div class="cert-img">
+          <img src="Logo-PIX.png" alt="SQL Database">
+        </div>
+        <h3>Certification PIX</h3>
+        <p>Maîtrise des informations, des données, de la collaboration ou encore de la création de contenu.</p>
+        <span class="cert-year">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section id="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="card" data-animate data-aos="fade-up">
+        <form action="" onsubmit="event.preventDefault(); sendMail();">
+          <div class="field">
+            <label>Nom</label>
+            <input type="text" id="name" placeholder="Votre nom" required>
+          </div>
+          <div class="field">
+            <label>E‑mail</label>
+            <input type="email" id="email" placeholder="vous@exemple.com" required>
+          </div>
+          <div class="field">
+            <label>Message</label>
+            <textarea id="message" placeholder="Bonjour..." required></textarea>
+          </div>
+          <div style="display:flex;gap:10px">
+            <button class="btn" type="submit">Envoyer</button>
+            <a class="btn ghost" href="mailto:contact@exemple.com">Envoyer via mail</a>
+          </div>
+        </form>
+      </div>
+
+      <aside class="card" data-animate data-aos="fade-left">
+        <h3>Infos</h3>
+        <p style="color:var(--muted)">Email : <a href="mailto:contact@exemple.com">julien.r0412@gmail.com</a><br>Localisation : Sucy-en-Brie, 94370</p>
+        <div style="margin-top:12px">
+          <strong>Réseaux</strong>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <a class="tag" href="#">GitHub</a>
+            <a class="tag" href="#">LinkedIn</a>
+            <a class="tag" href="#">Twitter</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="foot">© <span id="year"></span> REIS Julien — Portfolio</div>
+</main>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // init AOS
+  AOS.init({duration:700,once:true,offset:60});
+
+  // add aos class to data-animate fallback
+  document.querySelectorAll('[data-animate]').forEach(el=>{
+    el.classList.add('aos-init');
+    el.classList.add('aos-animate');
+  });
+
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // simple send mail fallback (opens mailto)
+  function sendMail(){
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const subject = encodeURIComponent('Contact depuis portfolio — ' + name);
+    const body = encodeURIComponent(message + '\n\n---\n' + name + '\n' + email);
+    window.location = 'mailto:contact@exemple.com?subject='+subject+'&body='+body;
+  }
+
+  // smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const target = document.querySelector(a.getAttribute('href'));
+      if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+</script>
+
+<script>
+  AOS.init({
+    duration: 900,   // durée en ms (900 = 0.9s)
+    offset: 80,      // distance avant déclenchement
+    once: true       // joue l’animation une seule fois
+  });
+</script>
+
+<script>
+  document.querySelectorAll(".accordion-header").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.parentElement;
+      item.classList.toggle("active");
+    });
+  });
+  </script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<script>
+  // Premier diaporama (classique)
+  var swiper1 = new Swiper(".mySwiper", {
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+
+  var swiper2 = new Swiper(".mySwiper2", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 30,
+    stretch: 0,
+    depth: 200,
+    modifier: 1,
+    slideShadows: true,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+</script>
+
+<script>
+  function toggleCV() {
+    const cv = document.getElementById("cvContent");
+    const button = document.querySelector(".cv-toggle .arrow");
+    cv.classList.toggle("open");
+    button.style.transform = cv.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
+  }
+</script>
+
+
+</body>
+</html>
