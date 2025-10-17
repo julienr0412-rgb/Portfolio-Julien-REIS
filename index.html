@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — REIS Julien</title>
   <meta name="description" content="Portfolio — Profil, BTS SIO, Projets, Veilles, Certifications, Contact">
 
@@ -30,6 +30,51 @@ html,body{
 }
 
 a{color:var(--accent);text-decoration:none}
+
+/* 📱 Ajustements pour mobile */
+@media (max-width: 768px) {
+  /* Structure générale */
+  body {
+    padding: 0 15px;
+  }
+
+  /* Sections en colonne au lieu de rangée */
+  .contact-wrapper,
+  .bts-container,
+  .project-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Formulaire et carte contact prennent toute la largeur */
+  .contact-form,
+  .contact-info {
+    width: 100%;
+  }
+
+  /* Textes centrés */
+  h2, h3, p {
+    text-align: center;
+  }
+
+  /* Images adaptatives */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Boutons plus larges et lisibles */
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Espacements adoucis */
+  section {
+    padding: 40px 0;
+  }
+}
+
 
 /* Header / Nav */
 
@@ -1343,11 +1388,9 @@ nav ul li a:hover {
     <div class="profil-content" data-aos="fade-up">
       <h2 class="section-title">À propos de moi</h2>
       <p class="profil-text">
-        Je suis un étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations), 
-        option <strong>SLAM</strong>, passionné par le développement web, les systèmes et les technologies innovantes.  
-        Curieux, rigoureux et motivé, j’aime apprendre de nouvelles compétences 
-        et relever des défis techniques à travers mes projets.
-      </p>
+        Actuellement étudiant en <strong>BTS SIO</strong> (Services Informatiques aux Organisations), option <strong>SISR</strong> (Solutions d’Infrastructure, Systèmes et Réseaux), je suis passionné par le monde de l’informatique et plus particulièrement par <strong>l’Administration des Systèmes et la Cybersécurité.</strong>
+
+Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compétences techniques à travers des projets personnels et professionnels. 
 
       <!-- COMPÉTENCES -->
       <div class="skills">
@@ -1658,35 +1701,39 @@ nav ul li a:hover {
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
         <div class="swiper-slide">
-          <img src="Tech-1.jpg" alt="Slide 1" style="width:100%;border-radius:12px;">
+          <img src="Techno-1.png" alt="Slide 1" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 2 -->
         <div class="swiper-slide">
-          <img src="Tech-2.jpg" alt="Slide 2" style="width:100%;border-radius:12px;">
+          <img src="Techno-2.png" alt="Slide 2" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 3 -->
         <div class="swiper-slide">
-          <img src="Tech-3.jpg" alt="Slide 3" style="width:100%;border-radius:12px;">
+          <img src="Techno-3.png" alt="Slide 3" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 4 -->
         <div class="swiper-slide">
-          <img src="Tech-4.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+          <img src="Techno-4.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 5 -->
         <div class="swiper-slide">
-          <img src="Tech-5.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+          <img src="Techno-5.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 6 -->
         <div class="swiper-slide">
-          <img src="Tech-6.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+          <img src="Techno-6.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 7 -->
         <div class="swiper-slide">
-          <img src="Tech-7.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+          <img src="Techno-7.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
         <!-- Slide 8 -->
         <div class="swiper-slide">
-          <img src="Tech-8.jpg" alt="Slide 4" style="width:100%;border-radius:12px;">
+          <img src="Techno-8.png" alt="Slide 4" style="width:100%;border-radius:12px;">
+        </div>
+         <!-- Slide 9 -->
+         <div class="swiper-slide">
+          <img src="Techno-9.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
       </div>
 
