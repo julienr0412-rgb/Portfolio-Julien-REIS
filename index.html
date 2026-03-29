@@ -631,7 +631,7 @@ textarea{min-height:140px}
 
 /* Active state */
 .accordion-item.active .accordion-content {
-  max-height: 500px; /* assez grand pour tout afficher */
+  max-height: 5000px; /* assez grand pour tout afficher */
   padding: 20px;
 }
 
@@ -1331,6 +1331,71 @@ nav ul li a:hover {
   }
 }
 
+.view-ppt-btn {
+  background-color: #0078d4; /* Bleu Microsoft */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 385px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.view-ppt-btn:hover {
+  background-color: #005a9e;
+}
+
+.ppt-viewer iframe {
+  width: 100%;
+  height: 500px; /* Hauteur minimale pour que ce soit lisible */
+  border: none;
+}
+
+.ppt-viewer {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* Pour que les bords arrondis de l'iframe fonctionnent */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.pdf-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.view-pdf-btn {
+  background-color: #0078d4; /* Gris foncé pro */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-pdf-btn:hover {
+  background-color: #34495e;
+  transform: translateY(-2px);
+}
+
+.pdf-viewer {
+  border: 2px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+/* Pour le mobile, on réduit un peu la hauteur */
+@media (max-width: 768px) {
+  .pdf-viewer embed {
+    height: 400px;
+  }
+}
+
 </style>
 
 <!-- AOS Animate On Scroll -->
@@ -1377,7 +1442,7 @@ nav ul li a:hover {
       </ul>
     </nav>
     <div class="sidebar-footer">
-      © 2025 REIS Julien — Portfolio
+      © 2026 REIS Julien — Portfolio
     </div>  
   </aside>
 </header>
@@ -1558,14 +1623,20 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
       </button>
       <div class="accordion-content">
         <h3 class="stage-title">Découverte de l'infrastructure et Support Technique.</h3>
-        <p>
-
+        <p>J’ai effectué mon stage dans l’entreprise <strong>Athena Global Services</strong>, qui dispose d’une équipe IT responsable de la gestion et du maintien des systèmes informatiques de l’entreprise. L’équipe assure le support technique, la maintenance des ordinateurs et serveurs, ainsi que la sécurité informatique.
         </p>
         <ul class="task-list">
-          <li>...</li>
-          <li>...</li>
+          <li><strong> Gestion du parc et déploiement :</strong> Installation et configuration d'ordinateurs portables pour les nouveaux collaborateurs.</li>
+          <li><strong> Support utilisateur :</strong> Prise en charge et résolution d'incidents via la plateforme GestSup et assistance à distance avec TeamViewer.</li>
+          <li><strong> Maintenance opérationnelle :</strong> Gestion des mises à jour (logiciels et OS) via la solution NinjaOne.</li>
         </ul>
-        <img src="" alt="Stage 1" class="stage-img">
+        <img src="Logo-AGS" alt="Stage 1" class="stage-img">
+        <div class="pdf-container">
+  <button class="view-pdf-btn" onclick="togglePDF(this)">📋 Cahier des charges - Stage n°1</button>
+  <div class="pdf-viewer" style="display: none; margin-top: 15px;">
+    <embed src="chemin/ton_fichier_1.pdf" width="100%" height="600px" type="application/pdf">
+  </div>
+</div>
       </div>
     </div>
     
@@ -1578,20 +1649,32 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
       <div class="accordion-content">
         <h3 class="stage-title">Optimisation, Virtualisation et Sécurisation du SI.</h3>
         <p>
-          J’ai effectué mon stage dans l’entreprise <strong>Athena Global Services</strong>, qui dispose d’une équipe IT responsable de la gestion et du maintien des systèmes informatiques de l’entreprise. L’équipe assure le support technique, la maintenance des ordinateurs et serveurs, ainsi que la sécurité informatique.
+          Lors de ma deuxième année, j’ai effectué mon stage au sein <strong>Athena Global Services</strong>, ce qui m’a permis de poursuivre mon intégration et de gagner en efficacité. J’ai été impliqué dans des projets plus complexes et plus concrets, avec davantage de responsabilités. Cette expérience m’a permis de développer mon autonomie et d’approfondir mes compétences techniques.
         </p>
         <ul class="task-list">
-          <li><strong> Virtualisation </strong> : Migration ou création de VM sur Proxmox/ESXi</li>
-          <li>Mise en place d'un Active Directory (DNS, DHCP, LAPS)</li>
-          <li>Supervision (Centreon)</li>
-          <li>Solution de sauvegarde (Veeam)</li>
-          <li>Installation et configuration de Firewall (Sophos)</li>
+          <li><strong>Virtualisation</strong> Mise en place d'un environnement virtualisé complet sous VMWare (ESXi et vCenter).</li>
+          <li><strong>Administration Système et AD :</strong> Apprentissage d'Active Directory avec gestion des politiques de sécurité (GPO) et intégration des services Windows (DNS, DHCP, LAPS).</li>
+          <li><strong>Sécurité du Data-center :</strong> Configuration avancée du Firewall Sophos XGS (Haute Disponibilité - HA, filtrage Web par catégories et contrôle d’application).</li>
+          <li><strong>Supervision :</strong> Mise en place et configuration de la surveillance des serveurs et services critiques avec Centreon.</li>
+          <li><strong>RGPD :</strong> La gestion des appareils mobiles (MDM)</li>
         </ul>
         <img src="Logo-AGS" alt="Stage 1" class="stage-img">
+        <div class="pdf-container" style="margin-top: 20px;">
+  <button class="view-pdf-btn" onclick="togglePDF(this)">📋 Cahier des charges - Stage n°2</button>
+  <div class="pdf-viewer" style="display: none; margin-top: 15px;">
+    <embed src="Cahier des charges - Julien REIS .pdf" width="100%" height="600px" type="application/pdf">
+  </div>
+</div>
+      </div>
+    </div>  
+    
+    <div class="ppt-container">
+      <button class="view-ppt-btn" onclick="togglePPT(this)">📁 Voir la présentation de mes stages</button>
+      <div class="ppt-viewer" style="display: none; margin-top: 15px;">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRQDoAhegIXbrXYfHJEOF0pGt5Nt1m9v4Ga6JCFNWNMyimuoB_unk1f570JJRYg-w/pubembed?start=false&loop=false&delayms=60000" frameborder="0" width="1920" height="1109" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
       </div>
     </div>
-
-    
+  
   </div>
 </section>
 
@@ -1620,22 +1703,7 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
           </div>
         </div>
         
-  
         <!-- Projet 2 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Logo-AGS" alt="Projet de Documentation">
-          </div>
-          <h3>Projet : Configuration et déploiement d’une infrastructure virtualisé</h3>
-          <p>Projet réalisé en autonomie durant mon stage de première année de BTS SIO.</p>
-        
-          <div class="pdf-links">
-            <a href="Infra-img.jpeg" target="_blank"><i class="fa-solid fa-building-shield"></i></i> Mon infrastructure </a>
-            <a href="Bureau-img.jpeg" target="_blank"><i class="fa-solid fa-display"></i> Bureau </a>
-          </div>
-        </div>
-        
-        <!-- Projet 3 -->
         <div class="project-card">
           <div class="project-img">
             <img src="VirtualBox-img.jpeg" alt="Projet de Documentation">
@@ -1648,7 +1716,7 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
           </div>
         </div>
 
-        <!-- Projet 4 -->
+        <!-- Projet 3 -->
         <div class="project-card">
           <div class="project-img">
             <img src="GPT-VSCODE.png" alt="Projet de Documentation">
@@ -1660,31 +1728,19 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
             </div>
         </div>
 
+        <!-- Projet 4 -->
+        <div class="project-card">
+          <div class="project-img">
+            <img src="vmware.jpg" alt="Projet de Documentation">
+          </div>
+          <h3>Découverte de VMWare</h3>
+          <p>Première approche d’un environnement VMWare durant ma période de stage chez AGS.</p>
+          <div class="pdf-links">
+            <a href="Infra-img.jpeg" target="_blank"><i class="fa-solid fa-server"></i></i> Mon infrastructure </a>
+          </div>
+        </div>
+
         <!-- Projet 5 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Proxmox-logo.png" alt="Projet de Documentation">
-          </div>
-          <h3>Configuration PROXMOX</h3>
-          <p>Déploiement d’un environnement avec supervision durant ma période de stage chez AGS.</p>
-          <div class="pdf-links">
-            <a href="Photo-Prox.jpeg" target="_blank"><i class="fa-solid fa-server"></i></i> PROXMOX </a>
-          </div>
-        </div>
-
-        <!-- Projet 6 -->
-        <div class="project-card">
-          <div class="project-img">
-            <img src="Logo-Sophos.webp" alt="Projet de Documentation">
-          </div>
-          <h3>Configuration SOPHOS</h3>
-          <p>Installation et configuration de routeurs Sophos XGS2100 (Firewall)</p>
-          <div class="pdf-links">
-            <a href="Cahier des charges - Julien REIS .pdf" target="_blank"><i class="fa-solid fa-book"></i></i> Cahier des Charges </a>
-          </div>
-        </div>
-
-        <!-- Projet 7 -->
         <div class="project-card">
           <div class="project-img">
             <img src="GLPI-DEBIAN.png" alt="Projet de Documentation">
@@ -1696,7 +1752,7 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
           </div>
         </div>
 
-        <!-- Projet 8 -->
+        <!-- Projet 6 -->
         <div class="project-card">
           <div class="project-img">
             <img src="kali-linux-1.jpg" alt="Projet de Documentation">
@@ -1738,10 +1794,6 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
         <div class="swiper-slide">
           <img src="4.png" alt="Slide 4" style="width:100%;border-radius:12px;">
         </div>
-        <!-- Slide 5 -->
-        <div class="swiper-slide">
-          <img src="5.png" alt="Slide 4" style="width:100%;border-radius:12px;">
-        </div>
       </div>
 
       <!-- Pagination et flèches -->
@@ -1778,10 +1830,6 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
       <!-- Slide 5 -->
       <div class="swiper-slide">
         <img src="S5.png" alt="Slide 4" style="width:100%;border-radius:12px;">
-      </div>
-      <!-- Slide 6 -->
-      <div class="swiper-slide">
-        <img src="S6.png" alt="Slide 4" style="width:100%;border-radius:12px;">
       </div>
     </div>
 
@@ -1832,26 +1880,6 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
       <!-- CERTIF 3 -->
       <div class="cert-item">
         <div class="cert-img">
-          <img src="Certificat Module 3 REIS Julien.jpg" alt="Azure Fundamentals">
-        </div>
-        <h3>Les Responsabilités des Acteurs.</h3>
-        <p>Introduction aux services cloud et à la gestion des infrastructures sur la plateforme Azure.</p>
-        <span class="cert-year">2024</span>
-      </div>
-
-      <!-- CERTIF 4 -->
-      <div class="cert-item">
-        <div class="cert-img">
-          <img src="Certificat Module 4 REIS Julien.jpg" alt="Développement Web">
-        </div>
-        <h3> Le DPO et les Outils de la Conformité. </h3>
-        <p>Certificat de compétences en HTML, CSS et JavaScript, avec un focus sur le responsive design.</p>
-        <span class="cert-year">2024</span>
-      </div>
-
-      <!-- CERTIF 5 -->
-      <div class="cert-item">
-        <div class="cert-img">
           <img src="Certificat Module 5 REIS Julien.jpg" alt="CompTIA Security+">
         </div>
         <h3>Les Collectivités Territoriales.</h3>
@@ -1859,7 +1887,7 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
         <span class="cert-year">2024</span>
       </div>
 
-      <!-- CERTIF 6 -->
+      <!-- CERTIF 4 -->
       <div class="cert-item">
         <div class="cert-img">
           <img src="Capture d’écran 2026-03-26 à 08.41.55.png" alt="PIX">
@@ -2034,6 +2062,36 @@ Rigoureux, curieux et motivé, je cherche sans cesse à approfondir mes compéte
   }
 </script>
 
+<script>
+function togglePPT(btn) {
+  const viewer = btn.nextElementSibling;
+  if (viewer.style.display === "none") {
+    viewer.style.display = "block";
+    btn.textContent = "❌ Fermer la présentation";
+  } else {
+    viewer.style.display = "none";
+    btn.textContent = "📁 Voir la présentation du stage";
+  }
+}
+</script>
+
+<script>
+function togglePDF(btn) {
+  const viewer = btn.nextElementSibling;
+  if (viewer.style.display === "none") {
+    viewer.style.display = "block";
+    btn.textContent = "❌ Fermer le document";
+  } else {
+    viewer.style.display = "none";
+    // On remet le texte d'origine selon le document
+    if (btn.textContent.includes("Stage 1")) {
+        btn.textContent = "📋 Cahier des charges - Stage 1";
+    } else {
+        btn.textContent = "📋 Cahier des charges - Stage 2";
+    }
+  }
+}
+</script>
 
 </body>
 </html>
